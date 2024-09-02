@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.UndertaleSaveEditor
+  name: UndertaleSaveEditor
+  version: 1.2.0.1
+  kind: app
+  description: |
+    Simple program by a simple person for simple people to simplify editing Undertale save files.
+
+command:
+  - /opt/apps/io.github.UndertaleSaveEditor/files/bin/UndertaleSaveEditor
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/Cofeiini/UndertaleSaveEditor.git
+    version: master
+    commit: 1c93e19ffebdda7ff476b6523d131391dc7272da
+
+build: |
+  cd /project/linglong/sources/UndertaleSaveEditor.git
+  git apply --reject --whitespace=fix ../../../0001-install.patch
+  cp images/icon.png images/UndertaleSaveEditor.png
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install

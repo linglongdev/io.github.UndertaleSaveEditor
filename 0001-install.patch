@@ -1,0 +1,43 @@
+From dee52ded42e562e9922c176a5d8c2851daf3a063 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Wed, 21 Aug 2024 20:54:20 +0800
+Subject: [PATCH] install
+
+---
+ UndertaleSaveEditor.desktop | 6 ++++++
+ UndertaleSaveEditor.pro     | 7 +++++++
+ 2 files changed, 13 insertions(+)
+ create mode 100644 UndertaleSaveEditor.desktop
+
+diff --git a/UndertaleSaveEditor.desktop b/UndertaleSaveEditor.desktop
+new file mode 100644
+index 0000000..a6d453b
+--- /dev/null
++++ b/UndertaleSaveEditor.desktop
+@@ -0,0 +1,6 @@
++[Desktop Entry]
++Name=UndertaleSaveEditor
++Exec=UndertaleSaveEditor
++Icon=UndertaleSaveEditor
++Type=Application
++Categories=Utility;
+\ No newline at end of file
+diff --git a/UndertaleSaveEditor.pro b/UndertaleSaveEditor.pro
+index 16bc2d7..074e919 100644
+--- a/UndertaleSaveEditor.pro
++++ b/UndertaleSaveEditor.pro
+@@ -33,3 +33,10 @@ HEADERS += \
+ 
+ RESOURCES += \
+     assets.qrc
++
++target.path = $$PREFIX/bin
++desktop.files = UndertaleSaveEditor.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = images/UndertaleSaveEditor.png
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
